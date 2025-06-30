@@ -1,0 +1,25 @@
+package com.generics;
+
+
+class GenericMethodDemo{
+	
+	
+	public void getMethod(T item) {
+		
+		System.out.println(item.tostring);
+	}
+	
+	
+}
+
+
+
+public class GenericMethods {
+	
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

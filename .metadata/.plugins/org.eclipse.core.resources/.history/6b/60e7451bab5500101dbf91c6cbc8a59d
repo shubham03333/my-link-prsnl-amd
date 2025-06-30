@@ -1,0 +1,24 @@
+package com.CollectiomsDemo;
+
+import java.util.Stack;
+
+public class StacksDemo {
+
+	public void main(String[] args) {
+
+		// Stacks in collections
+
+		Stack<String> stk = new Stack<>();
+
+		stk.push("shubham");
+		stk.push("vishal");
+		stk.push("pratik");
+		stk.push("deepak");
+
+		System.out.println(stk.peek());
+
+		System.out.println(stk.size());
+
+	}
+
+}

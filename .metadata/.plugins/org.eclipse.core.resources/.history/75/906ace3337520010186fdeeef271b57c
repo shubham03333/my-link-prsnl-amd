@@ -1,0 +1,27 @@
+package com.generics;
+
+public class App {
+	
+	
+	public static void getVal(int a, int b) {
+		
+		int result = a+b;
+		System.out.println("result="+" "+result);
+		
+		
+	}
+	
+	// method Overloading
+	
+	public static void getVal(double a, double b) {
+		int result = a+b;
+		System.out.println("result="+" "+result);
+	}
+	
+	public static void main(String[] args) {
+		
+		getVal(10.1,20);
+		
+	}
+
+}

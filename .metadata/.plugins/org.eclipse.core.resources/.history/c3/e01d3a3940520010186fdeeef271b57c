@@ -1,0 +1,56 @@
+package com.generics;
+
+
+class GenericMethodDemo{
+	
+	
+	public <T> void getMethod(T item) {
+		
+		System.out.println(item.toString());
+	
+	}
+	
+	public <T> T getmethodObj(T item) {
+		
+		return item;
+	}
+	
+	public <K,V> void printItems(K k, V v) {
+		
+		System.out.println(k.toString());
+		System.out.println(v.toString());
+	}
+	
+	public <T> void showItems(T[] arr) {
+		
+		for(T var : arr) {
+			System.out.println(var);
+		}
+	}
+	
+	
+}
+
+
+
+public class GenericMethods {
+	
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		
+		GenericMethodDemo genMethod= new GenericMethodDemo();
+		
+//		genMethod.getMethod("shubham");
+		
+//		System.out.println(genMethod.getmethodObj(1.5));
+		
+		genMethod.printItems("Hi", 1);
+		
+		Integer[] arr= {1,2,3,4,5};
+		
+		genMethod.showItems(arr);
+	}
+
+}

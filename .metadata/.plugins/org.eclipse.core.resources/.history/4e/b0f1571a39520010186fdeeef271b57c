@@ -1,0 +1,33 @@
+package com.generics;
+
+
+// example without generics
+public class App {
+
+	// Without using generics
+
+	public static void getVal(int a, int b) {
+
+		int result = a + b;
+		System.out.println("result=" + " " + result);
+
+	}
+
+	// method Overloading
+	public static void getVal(double a, double b) {
+		double result = a + b;
+		System.out.println("result from overidden method=" + " " + result);
+	}
+	
+
+	public static void main(String[] args) {
+
+		getVal(10, 30);
+
+	}
+
+}
+
+
+//Generics Examlple
+

@@ -1,0 +1,129 @@
+package com.api;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
+import com.api.Employee;
+
+public class SecondLevelOperations {
+	
+	// Employee Questions
+
+	List<Employee> employeelist = new ArrayList<>();
+
+	employeelist.add(new Employee(111, "Jiya Berin", 32, "female", "HR", 2011, 25500.00));
+	employeelist.add(new Employee(122, "Paul Nekin", 25, "male", "Sales and Marketing", 2015, 35500.00));
+	employeelist.add(new Employee(133, "Cjiya Berin", 29, "female", "Security and transport", 2011, 45500.00));
+	employeelist.add(new Employee(144, "Biya Kumar", 28, "female", "HR", 2013, 55500.00));
+	employeelist.add(new Employee(155, "Jiya Berin1", 21, "male", "Account and finance", 2011, 35530.00));
+	employeelist.add(new Employee(166, "Jiya Berin2", 20, "female", "Sales and Marketing", 2011, 35300.00));
+	employeelist.add(new Employee(177, "Jiya Berin3", 99, "male", "Infrastructure", 2011, 45500.00));
+	employeelist.add(new Employee(188, "Jiya Berin4", 33, "male", "Product development", 2000, 25500.00));
+	employeelist.add(new Employee(199, "Jiya Berin5", 45, "female", "Sales and Marketing", 2022, 29500.00));
+	employeelist.add(new Employee(200, "Jiya Berin6", 33, "male", "HR", 2017, 22100.00));
+	employeelist.add(new Employee(211, "Niya Berin7", 64, "female", "HR", 2006, 88500.00));
+	employeelist.add(new Employee(222, "Jiya Berin8", 12, "male", "Security and transport", 2011, 77500.00));
+	employeelist.add(new Employee(233, "Kiya Berin9", 10, "male", "Product development", 2015, 66500.00));
+	employeelist.add(new Employee(244, "Jiya Berin10", 89, "female", "Account and finance", 2023, 55500.00));
+	employeelist.add(new Employee(255, "Jiya Berlin11", 65, "male", "Security and transport", 2032, 43500.00));
+	employeelist.add(new Employee(266, "Ali Baig", 43, "male", "Product development", 2022, 234500.00));
+	
+	private static void calculateAvgAndTotalSalary(List<Employee> employeelist) {
+		// calculateAvgAndTotalSalary(employeelist);
+				System.out.println("Average salary :: "
+						+ employeelist.stream().collect(Collectors.averagingDouble(Employee::getSalary)).doubleValue());
+				System.out.println("Sum of salary :: "
+						+ employeelist.stream().collect(Collectors.summingDouble(Employee::getSalary)).doubleValue());
+			}
+
+			private static void listDownDepartWiseEmployees(List<Employee> employeelist) {
+		// ListDownDepartWiseEmployees(employeelist);
+				employeelist.stream().collect(Collectors.groupingBy(Employee::getDepartment)).entrySet().stream()
+						.forEach(e -> System.out.println(e.getKey() + " :: " + e.getValue()));
+				;
+			}
+
+			private static void avgSalOfMaleAndFemaleEmployees(List<Employee> employeelist) {
+		// avgSalOfMaleAndFemaleEmployees(employeelist);
+				employeelist.stream()
+						.collect(Collectors.groupingBy(Employee::getGender, Collectors.averagingDouble(Employee::getSalary)))
+						.entrySet().stream().forEach(entry -> System.out.println(entry.getKey() + " " + entry.getValue()));
+			}
+
+			private static void getEmployeesFromSalesAndMarketing(List<Employee> employeelist) {
+		// getEmployeesFromSalesAndMarketing(employeelist);
+				employeelist.stream().filter(e -> "Sales and Marketing".equalsIgnoreCase(e.getDepartment()))
+						.forEach(e -> System.out.println(e));
+			}
+
+			private static void mostWorkingExperience(List<Employee> employeelist) {
+		// mostWorkingExperience(employeelist);
+				System.out.println(employeelist.stream().min(Comparator.comparing(Employee::getYear)).get());
+			}
+
+			private static void getYoungestEmployee(List<Employee> employeelist) {
+		// getYoungestEmployee(employeelist);
+				System.out.println(employeelist.stream().min(Comparator.comparing(Employee::getAge)).get());
+			}
+
+			private static void deptWiseAvgSalary(List<Employee> employeelist) {
+		// deptWiseAvgSalary(employeelist);
+				employeelist.stream()
+						.collect(
+								Collectors.groupingBy(Employee::getDepartment, Collectors.averagingDouble(Employee::getSalary)))
+						.entrySet().stream().forEach(e -> System.out.println(e.getKey() + " :: " + e.getValue()));
+			}
+
+			private static void countNumberEmpsInDepartment(List<Employee> employeelist) {
+		// countNumberEmpsInDepartment(employeelist);
+				employeelist.stream().collect(Collectors.groupingBy(Employee::getDepartment, Collectors.counting())).entrySet()
+						.stream().forEach(entry -> System.out.println(entry.getKey() + " :: " + entry.getValue()));
+			}
+
+			private static void sortEmployeesBasedOnNameAndSalary(List<Employee> employeelist) {
+		//Sort employees based on name and salary
+				employeelist.stream().sorted(Comparator.comparing(Employee::getName).thenComparing(Employee::getSalary))
+						.forEach(e -> System.out.println(e));
+
+				employeelist.sort(Comparator.comparing(Employee::getName).thenComparing(Employee::getSalary));
+
+				employeelist.forEach(e -> System.out.println(e));
+			}
+
+			private static void employeesJoinedAfter2015(List<Employee> employeelist) {
+		// EmployeesJoinedAfter2015(employeelist);
+				employeelist.stream().filter(e -> e.getYear() > 2015).forEach(e -> System.out.println(e));
+			}
+
+			private static void getHighestPaidEmployees(List<Employee> employeelist) {
+		// getHighestPaidEmployees(employeelist);
+				Employee e = employeelist.stream().max(Comparator.comparing(Employee::getSalary)).get();
+				System.out.print(e);
+			}
+
+			private static void getAverageAgeOfEmployee(List<Employee> employeelist) {
+		// getAverageAgeOfEmployee(employeelist);
+				Double avgSalary = employeelist.stream().collect(Collectors.averagingDouble(Employee::getAge)).doubleValue();
+				System.out.println("Average age : " + avgSalary);
+			}
+
+			private static void printAllDepartments(List<Employee> employeelist) {
+		// printAllDepartments(employeelist);
+				employeelist.stream().map(Employee::getDepartment).distinct().forEach(dept -> System.out.println(dept));
+			}
+
+			private static void findNoOfMaleAndFemales(List<Employee> employeelist) {
+		// findNoOfMaleAndFemales(employeelist);
+				employeelist.stream().collect(Collectors.groupingBy(Employee::getGender, Collectors.counting())).entrySet()
+						.stream().forEach(e -> System.out.println(e.getKey() + " :: " + e.getValue()));
+				;
+			}
+
+			private static void extractEmployeeGreaterThanXAmount(List<Employee> employeelist) {
+		// ExtractEmployeeGreaterThanXAmount();
+		// 10. Employee Salary Greater than X:
+		// Given a list of employees (with fields: id, name, salary), find all employees
+		// earning more than 50,000.
+				employeelist.stream().filter(e -> e.getSalary() > 50000).forEach(e -> System.out.println(e));
+			}
+}

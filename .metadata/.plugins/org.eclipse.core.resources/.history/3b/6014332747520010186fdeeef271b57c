@@ -1,0 +1,21 @@
+package com.generics;
+
+public class BoundedGenericType {
+
+	public static <T extends Comparable<T>> T getMinValue(T t1, T t2) {
+
+		if (t1.compareTo(t2) < 0)
+			return t1;
+
+		return t2;
+
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		System.out.println("min value is "+BoundedGenericType.getMinValue(10.1, 20));
+
+	}
+
+}
