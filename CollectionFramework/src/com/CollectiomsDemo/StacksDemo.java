@@ -15,6 +15,8 @@ public class StacksDemo {
 		stk.push("pratik");
 		stk.push("deepak");
 		System.out.println(stk.peek());
+		
+		System.out.println(stk.pop());
 
 		System.out.println(stk.size());
 
