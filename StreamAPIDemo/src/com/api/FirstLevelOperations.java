@@ -385,13 +385,19 @@ public class FirstLevelOperations {
 	}
 
 	private static void sumOfEvenNumbers(List<Integer> list) {
-		int sum = list.stream().filter(n -> n % 2 == 0).mapToInt(n -> n.intValue()).sum();
+		int sum = list.stream()
+				.filter(n -> n % 2 == 0)
+				.mapToInt(n -> n.intValue())
+				.sum();
 		System.out.println("Sum of even numbers : " + sum);
 	}
 
 	private static void sumOfSqureOfOddNumbers(List<Integer> list) {
 		// sumOfSqureOfOddNumbers();
-		int sum1 = list.stream().filter(n -> n % 2 != 0).map(n -> n * n).mapToInt(n -> n.intValue()).sum();
+		int sum1 = list.stream()
+				.filter(n -> n % 2 != 0)
+				.map(n -> n * n)
+				.mapToInt(n -> n.intValue()).sum();
 		System.out.println(sum1);
 	}
 
